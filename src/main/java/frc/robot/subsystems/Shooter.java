@@ -6,9 +6,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
-public class Shooter extends SubsystemBase {
+public class Shooter {
     private final TalonFX motor = new TalonFX(ShooterConstants.MOTOR_ID);
 
     private final VelocityVoltage velocityVoltage = new VelocityVoltage(0);
