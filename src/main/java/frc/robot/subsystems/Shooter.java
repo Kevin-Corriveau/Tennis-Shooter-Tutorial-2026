@@ -3,6 +3,9 @@ package frc.robot.subsystems;
 import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.hardware.CANcoder;
 import com.ctre.phoenix6.hardware.TalonFX;
+
+import edu.wpi.first.units.measure.AngularMomentum;
+import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -16,32 +19,32 @@ public class Shooter extends SubsystemBase {
         this.CANcoder.getConfigurator().apply(ShooterConstants.CAN_CONFIG);
         this.motor.getConfigurator().apply(ShooterConstants.MOTOR_CONFIG);
         
-        this.setDefaultCommand(this.run(this::stop));
+        this.setDefaultCommand(this.run(()->stop()));
     }
 
     public void stop() {
         this.motor.stopMotor();
     }
 
-    public void spinVoltage() {
+    public void spinVoltage(double volts) {
         this.motor.setVoltage(
-            ShooterConstants.SPIN_VOLTAGE);
+           volts);
     }
 
-    public void spinVelocity() {
+    public void spinVelocity(AngularVelocity velocity) {
         this.motor.setControl(this.velocityVoltage
-            .withVelocity(ShooterConstants.SPIN_VELOCITY));
+            .withVelocity(velocity));
     }
 
     public Command stopCmd() {
-        return this.runOnce(this::stop);
+        return this.runOnce(()->stop());
     }
 
-    public Command velocityVoltageCmd() {
-        return this.run(this::spinVelocity);
+    public Command velocityVoltageCmd(AngularVelocity velocity) {
+        return this.run(()->spinVelocity(velocity));
     }
 
-    public Command voltageSpinCmd() {
-        return this.run(this::spinVoltage);
+    public Command voltageSpinCmd(double volts) {
+        return this.run(()->spinVoltage(volts));
     }
 }
