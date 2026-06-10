@@ -29,7 +29,7 @@ public class Shooter {
     }    
 
     public void spinVelocity() {
-        this.velocityVoltage.withVelocity(ShooterConstants.SPIN_VELOCITY_RPS);
+        this.velocityVoltage.Velocity = ShooterConstants.SPIN_VELOCITY_RPS;
         
         this.motor.setControl(this.velocityVoltage);
     }
