@@ -1,11 +1,14 @@
 package frc.robot.subsystems;
 
+import static edu.wpi.first.units.Units.Volts;
+
 import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.hardware.CANcoder;
 import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.units.measure.AngularMomentum;
 import edu.wpi.first.units.measure.AngularVelocity;
+import edu.wpi.first.units.measure.Voltage;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -40,11 +43,20 @@ public class Shooter extends SubsystemBase {
         return this.runOnce(()->stop());
     }
 
+
     public Command velocityVoltageCmd(AngularVelocity velocity) {
         return this.run(()->spinVelocity(velocity));
     }
 
     public Command voltageSpinCmd(double volts) {
         return this.run(()->spinVoltage(volts));
+    }
+
+    public AngularVelocity getvVelocity(){
+        return CANcoder.getVelocity().getValue();
+    }
+
+    public Voltage getVoltage(){
+        return motor.getMotorVoltage().getValue();
     }
 }

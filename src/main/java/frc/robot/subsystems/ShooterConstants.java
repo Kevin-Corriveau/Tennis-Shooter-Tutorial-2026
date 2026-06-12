@@ -16,10 +16,11 @@ import com.ctre.phoenix6.signals.SensorDirectionValue;
 import edu.wpi.first.units.measure.AngularVelocity;
 
 public abstract class ShooterConstants {
-    public static final int MOTOR_ID = 0;
-    public static final int CANCODER_ID = 0;
+    public static final int MOTOR_ID = 11;
+    public static final int CANCODER_ID = 10;
 
-    public static final double KP = 1;
+    public static final double KP = 3;
+    ;
     public static final double KS = 0;
     public static final double KV = 0;
 
@@ -42,7 +43,9 @@ public abstract class ShooterConstants {
         .withMagnetSensor(
             new MagnetSensorConfigs()
                 .withSensorDirection(SensorDirectionValue.Clockwise_Positive));
+                
 
-    public static final double SPIN_VOLTAGE = 3;
-    public static final AngularVelocity SPIN_VELOCITY = RotationsPerSecond.of(10);
+    public static final double SPIN_VOLTAGE = 6;
+    public static final AngularVelocity SPIN_VELOCITY = RotationsPerSecond.of(100);
 }
+
