@@ -21,10 +21,10 @@ public abstract class ShooterConstants {
     public static final int MOTOR_ID = 11;
     public static final int CANCODER_ID = 10;
 
-    public static final double KP = 3;
+    public static final double KP = 0.5;
     ;
     public static final double KS = 0;
-    public static final double KV = 0;
+    public static final double KV = 1;
 
     public static final TalonFXConfiguration MOTOR_CONFIG = new TalonFXConfiguration()
         .withMotorOutput(
