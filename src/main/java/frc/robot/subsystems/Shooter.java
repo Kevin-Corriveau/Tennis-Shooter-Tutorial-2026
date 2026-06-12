@@ -11,13 +11,8 @@ public class Shooter {
 
     private final VelocityVoltage velocityVoltage = new VelocityVoltage(0);
 
-    public Shooter() {
-        final TalonFXConfiguration config = new TalonFXConfiguration();
-    
-        config.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
-        config.MotorOutput.NeutralMode = NeutralModeValue.Coast;
-    
-        this.motor.getConfigurator().apply(config);
+    public Shooter() {    
+        this.motor.getConfigurator().apply(Mot);
     }
 
     public void stop() {
