@@ -12,9 +12,9 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-      if(ButtonConstants.controller.getRawButtonPressed(ButtonConstants.SPIN_VOLTAGE_BUTTON))
+      if(ButtonConstants.controller.getRawButton(ButtonConstants.SPIN_VOLTAGE_BUTTON))
         this.shooter.spinVoltage();
-      else if(ButtonConstants.controller.getRawButtonPressed(ButtonConstants.SPIN_VELOCITY_BUTTON))
+      else if(ButtonConstants.controller.getRawButton(ButtonConstants.SPIN_VELOCITY_BUTTON))
         this.shooter.spinVelocity();
       else
         this.shooter.stop();

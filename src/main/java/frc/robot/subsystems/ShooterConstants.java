@@ -15,7 +15,7 @@ public abstract class ShooterConstants {
     public static final int MOTOR_ID = 11;
     public static final int CANCODER_ID = 10;
 
-    private static final double KP = 3;
+    private static final double KP = 0.5;
 
     public static final TalonFXConfiguration MOTOR_CONFIG = new TalonFXConfiguration()
         .withMotorOutput(
@@ -35,6 +35,6 @@ public abstract class ShooterConstants {
             new MagnetSensorConfigs()
                 .withSensorDirection(SensorDirectionValue.Clockwise_Positive));
 
-    public static final double SPIN_VOLTAGE = 3;
-    public static final double SPIN_VELOCITY_RPS = 5;
+    public static final double SPIN_VOLTAGE = 6;
+    public static final double SPIN_VELOCITY_RPS = 25;
 }
