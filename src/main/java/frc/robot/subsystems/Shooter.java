@@ -1,18 +1,18 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.VelocityVoltage;
+import com.ctre.phoenix6.hardware.CANcoder;
 import com.ctre.phoenix6.hardware.TalonFX;
-import com.ctre.phoenix6.signals.InvertedValue;
-import com.ctre.phoenix6.signals.NeutralModeValue;
 
 public class Shooter {
     private final TalonFX motor = new TalonFX(ShooterConstants.MOTOR_ID);
+    private final CANcoder cancoder = new CANcoder(ShooterConstants.CANCODER_ID);
 
     private final VelocityVoltage velocityVoltage = new VelocityVoltage(0);
 
     public Shooter() {    
-        this.motor.getConfigurator().apply(Mot);
+        this.motor.getConfigurator().apply(ShooterConstants.MOTOR_CONFIG);
+        this.cancoder.getConfigurator().apply(ShooterConstants.CANCODER_CONFIG);
     }
 
     public void stop() {
