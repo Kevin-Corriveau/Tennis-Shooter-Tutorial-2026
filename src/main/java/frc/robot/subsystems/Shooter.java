@@ -28,8 +28,8 @@ public class Shooter extends SubsystemBase {
         this.motor.stopMotor();
     }
 
-    public void spinVoltage(Voltage volts) {
-        this.motor.setVoltage(volts.in(Volts));
+    public void spinVoltage(double volts) {
+        this.motor.setVoltage(volts);
     }
 
     public void spinVelocity(AngularVelocity velocity) {
